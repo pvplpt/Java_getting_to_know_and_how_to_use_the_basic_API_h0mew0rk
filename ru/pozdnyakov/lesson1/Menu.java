@@ -4,6 +4,7 @@ import ru.pozdnyakov.MyUtilities;
 import ru.pozdnyakov.lesson1.exercise1.Program1;
 import ru.pozdnyakov.lesson1.exercise2.Program2;
 import ru.pozdnyakov.lesson1.exercise3.Program3;
+import ru.pozdnyakov.lesson1.exercise4.Program4;
 
 
 public class Menu {
@@ -28,7 +29,7 @@ public class Menu {
                     Program3.task3();
                     break;
                 case 4:
-                    Program1.task1();
+                    Program4.task4();
                     break;
                 case 5:
                     flag = false;
