@@ -7,7 +7,7 @@ package ru.pozdnyakov.lesson1.exercise1;
 import java.util.Scanner;
 
 public class Program {
-
+    static Scanner iScanner = new Scanner(System.in);
     public static void main(String[] args) {
         task1();
     }
@@ -15,7 +15,7 @@ public class Program {
 
     public static void task1(){
 
-        int n = inputNaturelNumber();
+        int n = inputNaturelNumber("Введите натуральное число: ");
 
         long numTriangular = calculateTriangular(n);
         long numFactorial = calculateFactorial(n);
@@ -24,21 +24,21 @@ public class Program {
     }
 
 
-    static int inputNaturelNumber(){
-        Scanner iScanner = new Scanner(System.in);
+    public static int inputNaturelNumber(String msg){
+        
         int num = 0;
         while (num < 1) {
-            System.out.printf("Введите натуральное число: ");
+            System.out.printf(msg);
             while (!iScanner.hasNextInt()) {
                 System.out.printf("\n%s не подходит.\n", iScanner.nextLine());
-                System.out.printf("Введите натуральное число: ");
+                System.out.printf(msg);
             }
             num = iScanner.nextInt();
             if (num < 1) {
-                System.out.printf("\n%d не является натуральном числом!\n", num);
+                System.out.printf("\n%d не подходит.\n", num);
             }
         }
-        iScanner.close();
+        //iScanner.close();
         return num;
     }
 
