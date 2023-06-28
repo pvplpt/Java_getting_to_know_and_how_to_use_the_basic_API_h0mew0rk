@@ -1,7 +1,9 @@
 package ru.pozdnyakov.lesson1;
 
+import ru.pozdnyakov.MyUtilities;
 import ru.pozdnyakov.lesson1.exercise1.Program1;
 import ru.pozdnyakov.lesson1.exercise2.Program2;
+import ru.pozdnyakov.lesson1.exercise3.Program3;
 
 
 public class Menu {
@@ -13,7 +15,7 @@ public class Menu {
             System.out.println("3. Задание 3");
             System.out.println("4. Задание 4");
             System.out.println("5. Завершение работы приложения");
-            int num = Program1.inputNaturelNumber("Введите номер задания: ");
+            int num = MyUtilities.inputNaturelNumber("Введите номер задания: ");
 
             switch (num) {
                 case 1:
@@ -23,7 +25,7 @@ public class Menu {
                     Program2.task2();
                     break;
                 case 3:
-                    Program1.task1();
+                    Program3.task3();
                     break;
                 case 4:
                     Program1.task1();

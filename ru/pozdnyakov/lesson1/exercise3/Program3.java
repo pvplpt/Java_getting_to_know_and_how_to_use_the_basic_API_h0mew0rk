@@ -2,61 +2,63 @@
  * Задача 3: Реализовать простой калькулятор
  */
 package ru.pozdnyakov.lesson1.exercise3;
-import java.util.Scanner;
+
+import ru.pozdnyakov.MyUtilities;
 
 public class Program3 {
     public static void main(String[] args) {
-        Scanner iScanner = new Scanner(System.in);
-        double[] x = new double[2];
-        // Ввод двух чисел
-        int i = 0;
-        while (i < 2) {
-            System.out.printf("Введите %d-е число: ", i + 1);
-            while (!iScanner.hasNextDouble()) {
-                System.out.printf("\n%s не подходит.\n", iScanner.next());
-                System.out.printf("Введите %d-е число: ", i + 1);
-            }
-            x[i] = iScanner.nextDouble();
-            i++;
-        }
-        String listOper = "1. Сложение\n2. Вычитание\n3. Умножение\n4. Деление";
-        // Ввод операции
-        int n = 0;
-        while ((n < 1) || (n > 4)) {
-            System.out.println(listOper);
-            System.out.print("Выберите оперцию: ");
-            while (!iScanner.hasNextInt()) {
-                System.out.printf("\n%s не подходит.\n", iScanner.next());
-                System.out.println(listOper);
-                System.out.print("Выберите оперцию: ");
-            }
-            n = iScanner.nextInt();
-            if ((n < 1) || (n > 4)) {
-                System.out.printf("\n%d не принадлежит отрезку [1;4]!\n", n);
-            }
-        }
-        iScanner.close();
-
-        // Выполнение операции
-        double result = 0;
-        switch (n) {
-            case 1:
-                result = x[0] + x[1];
-                break;
-            case 2:
-                result = x[0] - x[1];
-                break;
-            case 3:
-                result = x[0] * x[1];
-                break;
-            case 4:
-                result = x[0] / x[1];
-                break;
-        }
-
-        // вывод результата
-        String[] oper = new String[] { "+", "-", "*", ":" };
-        System.out.printf("\n%f %s %f = %f\n", x[0], oper[n - 1], x[1], result);
+        task3();
     }
 
+    public static void task3() {
+
+        // Ввод двух чисел
+        double firstNumber = MyUtilities.inputDoubleNumber("Введите 1-е число: ");
+        double secondNumber = MyUtilities.inputDoubleNumber("Введите 2-е число: ");
+
+        // Ввод операции
+        int operation = inputOperation();
+
+        // Выполнение операции
+        double result = executeOperation(firstNumber, operation, secondNumber);
+
+        // вывод результата
+        printResult(firstNumber, operation, secondNumber, result);
+    }
+
+    static int inputOperation() {
+        String listOperation = "\n1. Сложение\n2. Вычитание\n3. Умножение\n4. Деление";
+        int numOperation = 0;
+        while ((numOperation < 1) || (numOperation > 4)) {
+            System.out.println(listOperation);
+            numOperation = MyUtilities.inputNaturelNumber("Выберите операцию: ");
+        }
+        return numOperation;
+    }
+
+    static double executeOperation(double x, int operation, double y) {
+        double result = 0.0;
+        switch (operation) {
+            case 1:
+                result = x + y;
+                break;
+            case 2:
+                result = x - y;
+                break;
+            case 3:
+                result = x * y;
+                break;
+            case 4:
+                // Првильно проверить делитель на ноль
+                // но в java есть результат Infinity
+                result = x / y;
+                break;
+        }
+        return result;
+    }
+
+    static void printResult(double x, int operation, double y, double result) {
+        String[] oper = new String[] { "+", "-", "*", ":" };
+        System.out.printf("\n%f %s %f = %f\n", x, oper[operation - 1], y, result);
+    }
 }

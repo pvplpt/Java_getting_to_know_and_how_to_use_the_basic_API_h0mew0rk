@@ -8,7 +8,7 @@ public class Program2 {
     }
 
     public static void task2() {
-        System.out.print("Простые числа от 1 до 1000:\n2"); // первое простое и единственное четное число
+        System.out.print("\nПростые числа от 1 до 1000:\n2"); // первое простое и единственное четное число
         //перебираем остальные нечетные числа
         for (int i = 3; i < 1000; i += 2) {            
             if (isPrimeNumber(i)) {
