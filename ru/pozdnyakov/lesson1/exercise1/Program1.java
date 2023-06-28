@@ -6,7 +6,7 @@ package ru.pozdnyakov.lesson1.exercise1;
 
 import java.util.Scanner;
 
-public class Program {
+public class Program1 {
     static Scanner iScanner = new Scanner(System.in);
     public static void main(String[] args) {
         task1();

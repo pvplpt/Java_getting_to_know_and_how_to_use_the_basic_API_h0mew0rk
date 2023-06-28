@@ -1,6 +1,8 @@
 package ru.pozdnyakov.lesson1;
 
-import ru.pozdnyakov.lesson1.exercise1.Program;
+import ru.pozdnyakov.lesson1.exercise1.Program1;
+import ru.pozdnyakov.lesson1.exercise2.Program2;
+
 
 public class Menu {
     public static void main(String[] args) {
@@ -11,20 +13,20 @@ public class Menu {
             System.out.println("3. Задание 3");
             System.out.println("4. Задание 4");
             System.out.println("5. Завершение работы приложения");
-            int num = Program.inputNaturelNumber("Введите номер задания: ");
+            int num = Program1.inputNaturelNumber("Введите номер задания: ");
 
             switch (num) {
                 case 1:
-                    Program.task1();
+                    Program1.task1();
                     break;
                 case 2:
-                    Program.task1();
+                    Program2.task2();
                     break;
                 case 3:
-                    Program.task1();
+                    Program1.task1();
                     break;
                 case 4:
-                    Program.task1();
+                    Program1.task1();
                     break;
                 case 5:
                     flag = false;

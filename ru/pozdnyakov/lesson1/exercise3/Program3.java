@@ -4,7 +4,7 @@
 package ru.pozdnyakov.lesson1.exercise3;
 import java.util.Scanner;
 
-public class Program {
+public class Program3 {
     public static void main(String[] args) {
         Scanner iScanner = new Scanner(System.in);
         double[] x = new double[2];
