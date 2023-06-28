@@ -3,40 +3,70 @@
  * n! (произведение чисел от 1 до n)
  */
 package ru.pozdnyakov.lesson1.exercise1;
+
 import java.util.Scanner;
 
 public class Program {
 
     public static void main(String[] args) {
+        task1();
+    }
+
+
+    public static void task1(){
+
+        int n = inputNaturelNumber();
+
+        long numTriangular = calculateTriangular(n);
+        long numFactorial = calculateFactorial(n);
+       
+        printResult(n,numTriangular,numFactorial);
+    }
+
+
+    static int inputNaturelNumber(){
         Scanner iScanner = new Scanner(System.in);
-        int n = 0;
-        while (n < 1) {
+        int num = 0;
+        while (num < 1) {
             System.out.printf("Введите натуральное число: ");
             while (!iScanner.hasNextInt()) {
-                System.out.printf("\n%s не подходит.\n", iScanner.next());
+                System.out.printf("\n%s не подходит.\n", iScanner.nextLine());
                 System.out.printf("Введите натуральное число: ");
             }
-            n = iScanner.nextInt();
-            if (n < 1) {
-                System.out.printf("\n%d не является натуральном числом!\n", n);
+            num = iScanner.nextInt();
+            if (num < 1) {
+                System.out.printf("\n%d не является натуральном числом!\n", num);
             }
         }
         iScanner.close();
+        return num;
+    }
 
-        long numTriangular = n * (n + 1L) / 2L;
-        long numFactorial = 1;
-        String result = "";
+    static long calculateTriangular(int n){
+        return n * (n + 1L) / 2L;
+    }
+
+    static long calculateFactorial(int n){
+        long factorial = 1;
         if (n <= 20) {
             for (int i = n; i > 1; i--) {
-                numFactorial *= i;
+                factorial *= i;
             }
-            result = String.format("%d! = %d", n, numFactorial);
         } else {
-            result = String.format("%d! вычислить не получилось.\n", n);
-            result += "n! могу вычислить только для n не больше 20.";
+            factorial = -1;
         }
+        return factorial;
+    }
 
-        System.out.printf("\n%d-е треугольное число = %d\n", n, numTriangular);
-        System.out.println(result);
+    static void printResult(int n, long t, long f){
+
+        System.out.printf("\n%d-е треугольное число = %d\n", n, t);
+
+        if (f < 1) {
+            System.out.printf("%d! вычислить не получилось.\n", n); 
+            System.out.println("n! могу вычислить только для n не больше 20.");
+        } else {
+            System.out.printf("%d! = %d\n", n, f);
+        }          
     }
 }
