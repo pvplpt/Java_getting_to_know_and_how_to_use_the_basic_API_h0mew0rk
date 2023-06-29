@@ -1,6 +1,5 @@
-package ru.pozdnyakov.lesson1;
+package ru.pozdnyakov;
 
-import ru.pozdnyakov.MyUtilities;
 import ru.pozdnyakov.lesson1.exercise1.Program1;
 import ru.pozdnyakov.lesson1.exercise2.Program2;
 import ru.pozdnyakov.lesson1.exercise3.Program3;
