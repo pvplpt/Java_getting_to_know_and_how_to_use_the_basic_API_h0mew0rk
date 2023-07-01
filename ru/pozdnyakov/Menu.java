@@ -7,6 +7,7 @@ import ru.pozdnyakov.lesson1.exercise4.Program4;
 import ru.pozdnyakov.lesson2.exercise1.Program21;
 import ru.pozdnyakov.lesson2.exercise2.Program22;
 import ru.pozdnyakov.lesson2.exercise3.Program23;
+import ru.pozdnyakov.lesson2.exercise4.Program24;
 
 
 
@@ -48,10 +49,9 @@ public class Menu {
                 case 7:
                     Program23.task3();
                     break;
-/*                case 8:
+                case 8:
                     Program24.task4();
                     break;                    
-*/
                 case 9:
                     flag = false;
                     System.out.println("\nДо новых встреч!");
