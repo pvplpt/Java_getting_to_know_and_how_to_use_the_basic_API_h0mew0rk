@@ -4,12 +4,14 @@
  */
 package ru.pozdnyakov.lesson2.exercise2;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import ru.pozdnyakov.MyUtilities;
 
 public class Program22 {
+    private static Logger logger = Logger.getLogger(Program22.class.getName());
     public static void main(String[] args) {
         task2();
     }
@@ -29,11 +31,12 @@ public class Program22 {
     static void sortBubbleWithLog(int[] arr) {
         if (arr.length < 2)
             return;
-        File logFile = new File("log_ex2_les2.txt");
-        System.out.println("\nРезультат каждой итерации будет записан в лог-файл: ");
-        System.out.println(logFile.getAbsolutePath());
+        try {
+            FileHandler fh = new FileHandler("log_ex2_les2.txt", true);
+            logger.addHandler(fh);
+            SimpleFormatter sFormat = new SimpleFormatter();
+            fh.setFormatter(sFormat);
 
-        try (FileWriter fileWriter = new FileWriter(logFile, false)) {
             for (int i = 1; i < arr.length; i++) {
                 boolean isSorted = true;
                 for (int j = 0; j < arr.length - i; j++) {
@@ -43,15 +46,17 @@ public class Program22 {
                         arr[j] = arr[j + 1];
                         arr[j + 1] = tmp;
                     }
-                    fileWriter.write(MyUtilities.intArrayToString(arr) + "\n");
+                    logger.info(MyUtilities.intArrayToString(arr));
                 }
                 if (isSorted) {
+                    fh.close();
                     return;
                 }
             }
-
+            fh.close();
         } catch (Exception e) {
-            System.out.println("Ошибка работы с файлом!");
+            System.out.println("Ошибка работы с лог-файлом.");
+            System.out.println(e.getMessage());
         }
 
     }
