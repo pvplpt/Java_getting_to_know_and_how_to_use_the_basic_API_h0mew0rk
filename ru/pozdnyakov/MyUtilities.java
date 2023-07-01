@@ -1,6 +1,8 @@
 package ru.pozdnyakov;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
@@ -37,26 +39,24 @@ public class MyUtilities {
     }
 
     public static int[] createArrayInteger(int size, int minValue, int maxValue) {
-        int [] result = new int[size];
-        if (minValue > maxValue){
+        int[] result = new int[size];
+        if (minValue > maxValue) {
             int tmp = minValue;
             minValue = maxValue;
             maxValue = tmp;
         }
         int len = maxValue - minValue;
         for (int i = 0; i < result.length; i++) {
-            result[i] = minValue + Math.abs(random.nextInt())  % len;
+            result[i] = minValue + Math.abs(random.nextInt()) % len;
         }
 
         return result;
     }
 
-    public static void printArrayInteger(int[] arr){
+    public static void printArrayInteger(int[] arr) {
         System.out.println(intArrayToString(arr));
     }
-    
-    
-    
+
     public static void writeToLogFile(String filename, String text) {
         File logFile = new File(filename);
         try (FileWriter fileWriter = new FileWriter(logFile, true)) {
@@ -66,7 +66,7 @@ public class MyUtilities {
         }
     }
 
-    public static String intArrayToString(int [] arr){
+    public static String intArrayToString(int[] arr) {
         StringBuilder result = new StringBuilder();
         int sizeArray = arr.length;
         if (sizeArray == 0) {
@@ -75,10 +75,43 @@ public class MyUtilities {
             result.append(String.format("[%d", arr[0]));
             for (int i = 1; i < sizeArray; i++) {
 
-                result.append(String.format(", %d",arr[i]));
+                result.append(String.format(", %d", arr[i]));
             }
-            result.append("]");           
+            result.append("]");
         }
         return result.toString();
+    }
+
+    public static String readFirstLineFile(String filename) {
+        File jsonFile = new File(filename);
+        try (BufferedReader br = new BufferedReader(new FileReader(jsonFile))) {
+            return br.readLine();
+        } catch (Exception e) {
+            System.out.println("Ошибка чтения файла:");
+            System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
+    public static int stringCountChar(String str, char findChar) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == findChar) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void printArrayString(String[] arr){
+        for (String str : arr) {
+            System.out.println(str);
+        }
+    }
+
+    public static void printArrayStringBuilder(StringBuilder[] arr){
+        for (StringBuilder str : arr) {
+            System.out.println(str.toString());
+        }
     }
 }

@@ -6,6 +6,7 @@ import ru.pozdnyakov.lesson1.exercise3.Program3;
 import ru.pozdnyakov.lesson1.exercise4.Program4;
 import ru.pozdnyakov.lesson2.exercise1.Program21;
 import ru.pozdnyakov.lesson2.exercise2.Program22;
+import ru.pozdnyakov.lesson2.exercise3.Program23;
 
 
 
@@ -44,10 +45,10 @@ public class Menu {
                 case 6:
                     Program22.task2();
                     break;
-/*                case 7:
+                case 7:
                     Program23.task3();
                     break;
-                case 8:
+/*                case 8:
                     Program24.task4();
                     break;                    
 */
