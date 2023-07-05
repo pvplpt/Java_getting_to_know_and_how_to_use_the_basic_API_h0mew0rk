@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -158,5 +159,18 @@ public class MyUtilities {
 
     public static void printArrayListInteger(ArrayList<Integer> arrayList){
         System.out.println(arrayListIntToString(arrayList));
+    }
+
+    public static LinkedList<Integer> createRandomLinkedList(int size, int minValue, int maxValue){
+        LinkedList<Integer> result = new LinkedList<>();
+        if (minValue > maxValue) {
+            int tmp = minValue;
+            minValue = maxValue;
+            maxValue = tmp;
+        }  
+        for (int i = 0; i < size; i++) {
+            result.add(randomIntNumber(minValue, maxValue));
+        }
+        return result;
     }
 }
