@@ -26,7 +26,7 @@ public class Program41 {
         // LinkedList<Integer> rollLinkedList = reverseLinkedList(linkedList);
         reverseLinkedList(linkedList);
 
-        System.out.println("\nПеревернутый” список");
+        System.out.println("\n\"Перевернутый\" список: ");
         // System.out.println(rollLinkedList);
         System.out.println(linkedList);
 
