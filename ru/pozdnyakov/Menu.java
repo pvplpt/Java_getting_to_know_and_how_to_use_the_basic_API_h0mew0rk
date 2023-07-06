@@ -32,7 +32,7 @@ public class Menu {
             System.out.println("--- Урок 4. Хранение и обработка данных ч1: приоритетные коллекции ---");
             System.out.println("10. Задание 1. Перевернуть LinkedList");
             System.out.println("11. Задание 2. Реализовать очередь с помощью LinkedList");
-            System.out.println("12. Задание 3. (не выполнено) Добавить отмену последней операции в калькуляторе");
+            System.out.println("12. Задание 3. Добавить отмену последней операции в калькуляторе");
             System.out.println("---");
             System.out.println("13. Завершение работы приложения");
             int num = MyUtilities.inputNaturelNumber("Введите номер задания: ");
