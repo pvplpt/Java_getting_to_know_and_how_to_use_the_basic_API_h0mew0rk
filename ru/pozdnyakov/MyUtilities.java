@@ -26,18 +26,20 @@ public class MyUtilities {
                 System.out.printf("\n%d не подходит.\n", num);
             }
         }
-
+        iScanner.nextLine();
         return num;
     }
 
     public static double inputDoubleNumber(String msg) {
-
+        double result = 0.0;
         System.out.printf(msg);
         while (!iScanner.hasNextDouble()) {
             System.out.printf("\n%s не подходит.\n", iScanner.nextLine());
             System.out.printf(msg);
         }
-        return iScanner.nextDouble();
+        result = iScanner.nextDouble();
+        iScanner.nextLine();
+        return result;
     }
 
     public static int[] createArrayInteger(int size, int minValue, int maxValue) {
@@ -173,4 +175,14 @@ public class MyUtilities {
         }
         return result;
     }
+
+    public static char inputChar(String msg) {
+        System.out.printf(msg);
+        String inpuString = iScanner.nextLine();
+        while (inpuString.isEmpty()) {
+            System.out.printf(msg);
+            inpuString = iScanner.nextLine();            
+        }
+        return inpuString.toLowerCase().charAt(0);
+    }    
 }
